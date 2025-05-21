@@ -3,7 +3,7 @@
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
 
 /**
@@ -11,7 +11,11 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+  return total;
 }
 
 /**
@@ -19,48 +23,105 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  const total = getSum(numbers);
+  const numOfItems = getLength(numbers);
+  const mean = total / numOfItems;
+  return mean;
 }
+// Get the total - use getSum(numbers) - this will be const
+// Get the length - use getLength(numbers) - will also be const (re-using from what I've already done)
+// Divide total by count
+// Return the result
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  let min = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if(numbers[i] < min) {
+      min = numbers[i];
+    }
+  }
+  return min;
 }
+
+// numbers[0] means that we are starting from the begining of the array
+// loop through the array: for(let i=1; i <number.length; i++)
+//                              (start;  cont. if true  ; do after each loop)
+// *** start; = let i = 1; because we already used index 0 as the initial min
+// if(numbers[i] < min) = is the current number smaller than min. If it is, update min.
+// return
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  let max = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if(numbers[i] > max) {
+      max = numbers[i];
+    }
+  }
+  return max;
 }
+
+// same as min except switch it around for finding the max
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  const max = getMax(numbers);
+  const min = getMin(numbers);
+  const range = max - min;
+  return range;
 }
+
+// need to get max = `const max = getMax(numbers)`
+// need to get min = `const min = getMin(numbers)`
+// find the range by subtracting min from max = `const range = max - min`
+// return
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  let evens = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evens.push(numbers[i]);
+    }
+  }
+  return evens;
 }
+
+// create the empty container ([]) so that it can insert the user array of numbers
+// loop
+// check if numbers are even (using the modulo operator = % 2) 
+// numbers[i] % 2 === 0 means `Is this number divisible by 2 with no remainder` - if yes, it's even.
+// push it into the evens array
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  let odds = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      odds.push(numbers[i]);
+    }
+  }
+  return odds;
 }
+
+// same as getEvens but change the Evens to Odds and the 2 === 0 is now 2 !== 0 ...
+// ...because now it should not be divisable by 2. 
 
 // === READ BUT DO NOT EDIT THE CODE BELOW ===
 
